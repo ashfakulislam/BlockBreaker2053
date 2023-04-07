@@ -48,7 +48,7 @@ const paddle = {
     w: 80,
     h: 8,
     speed: 8,
-    dx: 0
+    dx: .5,
 }
 
 //Draw ball onto canvas
@@ -95,7 +95,6 @@ function movePaddle(){
     //Surrounding wall detection
     //To the right side
     
-
     //Surrounding wall detection
     //To the left side
     
@@ -108,11 +107,11 @@ function moveBall(){
 
     //Surrounding wall collision detection(x-axis)
     //right and left walls
-    if(canvas.width<=ball.x || ball.x<0) ball.dx=ball.dx*(-1);
+    if(canvas.width<=ball.x || ball.x<0 ) ball.dx=ball.dx*(-1);
 
     //Surrounding wall collision detection(y-axis)
     //top and bottom walls
-    if(canvas.height<=ball.y || ball.y<0) ball.dy=ball.dy*(-1);
+    if(canvas.height<=ball.y || ball.y<0 || (ball.x>=paddle.x-40 && ball.x<=paddle.x+40 && ball.y>=paddle.y-4 && ball.y<=paddle.y+4)) ball.dy=ball.dy*(-1);
 
     //Paddle collision functionality
     
