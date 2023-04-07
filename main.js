@@ -177,9 +177,10 @@ function update(){
     if(!isGameOver && score != (blockColumnCount*blockRowCount)) screen = requestAnimationFrame(update);
     else if (score == (blockColumnCount*blockRowCount)) {
         draw();
+        let god = document.getElementById('game-over');
+        god.innerText = 'YOU WON!!!';
     }else if(isGameOver){
         draw();
-        // saalert("Game Over!!!");
         let god = document.getElementById('game-over');
         god.innerText = 'game over';
     }
