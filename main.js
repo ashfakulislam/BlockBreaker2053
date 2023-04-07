@@ -48,7 +48,7 @@ const paddle = {
     w: 80,
     h: 8,
     speed: 8,
-    dx: .5,
+    dx: 0,
 }
 
 //Draw ball onto canvas
@@ -111,7 +111,7 @@ function moveBall(){
 
     //Surrounding wall collision detection(y-axis)
     //top and bottom walls
-    if(canvas.height<=ball.y || ball.y<0 || (ball.x>=paddle.x-40 && ball.x<=paddle.x+40 && ball.y>=paddle.y-4 && ball.y<=paddle.y+4)) ball.dy=ball.dy*(-1);
+    if(canvas.height<=ball.y || ball.y<0 || (ball.x>=paddle.x-40 && ball.x<=paddle.x+100 && ball.y>=paddle.y-4 && ball.y<=paddle.y+4)) ball.dy=ball.dy*(-1);
 
     //Paddle collision functionality
     
@@ -188,9 +188,9 @@ update();
 //Targetting the right and left arrow keys
 function keyDown(e){
     if(e.key === 'Right' || e.key === 'ArrowRight'){
-
+        paddle.x+=8;
     } else if(e.key === 'Left' || e.key === 'ArrowLeft'){
-
+        paddle.x-=8;
     } 
 }
 
