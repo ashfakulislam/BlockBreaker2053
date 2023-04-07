@@ -113,8 +113,8 @@ function moveBall(){
     //top and bottom walls
     if(canvas.height<=ball.y || ball.y<0 || (ball.x>=paddle.x-40 && ball.x<=paddle.x+100 && ball.y>=paddle.y-4 && ball.y<=paddle.y+4)) ball.dy=ball.dy*(-1);
 
-    //Paddle collision functionality
-    
+    //isgameover
+    if(canvas.height<=ball.y) isGameOver=true;
 
     //Block collision functionality
     blocks.forEach(column => {
@@ -174,11 +174,14 @@ function update(){
     //Drawing eveything in the update function
     draw();
 
-    screen = requestAnimationFrame(update);
-    if (score == (blockColumnCount*blockRowCount)) {
-        
+    if(!isGameOver && score != (blockColumnCount*blockRowCount)) screen = requestAnimationFrame(update);
+    else if (score == (blockColumnCount*blockRowCount)) {
+        draw();
     }else if(isGameOver){
-        
+        draw();
+        // saalert("Game Over!!!");
+        let god = document.getElementById('game-over');
+        god.innerText = 'game over';
     }
 }
 
