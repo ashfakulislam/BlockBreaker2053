@@ -94,10 +94,10 @@ function movePaddle(){
 
     //Surrounding wall detection
     //To the right side
-    
+    if(paddle.x>720) paddle.x=720;
     //Surrounding wall detection
     //To the left side
-    
+    if(paddle.x<0) paddle.x=0;
 }
 
 //Function to move ball on the canvas
