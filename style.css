@@ -68,4 +68,9 @@ canvas{
 .rules.show{
     transform: translateX(0);
 }
+#game-over{
+    font-size: 2.4rem;
+    color: #d3ec15;
+    margin-top: 10px;
+}
 
